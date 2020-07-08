@@ -23,10 +23,25 @@ class Tree extends React.Component {
     if (params.config) config = params.config;
     if (params.columns) columns = params.columns;
 
-    this.Instance = new InspireTree({ data:data,  selection: {
+    // this.Instance = new InspireTree({
+    //   data: data, selection: {
+    //     mode: 'checkbox'
+    //   },
+    // });
+
+
+    this.Instance = new InspireTree({
+      data: (node, resolve, reject) => {
+        console.log(node);
+
+        return resolve(data)
+      }, selection: {
         mode: 'checkbox'
-    }, });
-    new TreeDom(this.Instance, { target: this.treeNode, columns, ...config , showCheckbox:true }); // eslint-disable-line
+      },
+    });
+
+
+    new TreeDom(this.Instance, { target: this.treeNode, columns, ...config, showCheckbox: true }); // eslint-disable-line
   }
 
   componentDidMount() {
@@ -41,10 +56,13 @@ class Tree extends React.Component {
 
   render() {
     return (
-      <div
-        ref={tree => { this.treeNode = tree; }}
-        className={this.props.className}
-      />
+      <>
+        <button>load</button>
+        <div
+          ref={tree => { this.treeNode = tree; }}
+          className={this.props.className}
+        />
+      </>
     );
   }
 }
