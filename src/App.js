@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import data from "./full.json";
+import logo from "./logo.svg";
+// import "./App.css";
+import Tree from "./components/tree/tree";
+//import { rollup } from "rollup/dist/es/rollup.browser";
+
+// modules.forEach(module => {
+// 	moduleById[module.name] = module;
+// });
+
+// async function test() {
+//   const { output } = await (await rollup(inputOptions)).generate({});
+//   console.log(output)
+// }
 
 function App() {
+  useEffect(() => {
+    console.log("mounted");
+    // console.log(rollup);
+
+    // test();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to relefefoad.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tree nodes={data} />
     </div>
   );
 }
