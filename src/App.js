@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import data from "./full.json";
 import logo from "./logo.svg";
 // import "./App.css";
-import Tree from "./components/tree/tree";
+//import Tree from "./components/tree/tree";
 // import Tree from "./components/treeBeard";
 //import { rollup } from "rollup/dist/es/rollup.browser";
+import Test from './components/treedomtest/index'
 
 // modules.forEach(module => {
 // 	moduleById[module.name] = module;
@@ -24,7 +25,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-     <Tree nodes={data} />
+     <Test data={data} />
     </div>
   );
 }

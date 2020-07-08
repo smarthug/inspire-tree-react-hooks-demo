@@ -1,0 +1,115 @@
+@import "treefont";
+.tree-wrap {
+  position: relative;
+  &:focus {
+    outline: none;
+  }
+  ul, li {
+    list-style: none;
+    outline: none;
+  }
+  ul ul {
+    padding-left: 20px;
+  }
+  li {
+    &.matched {
+      & > .wholerow {
+        background-color: #fff3cd;
+      }
+    }
+    & > .title-wrap {
+      min-height: 25px;
+      position: relative;
+      z-index: 2;
+    }
+    a {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .tree-list {
+    .toggle {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+    .node {
+      cursor: pointer;
+      display: block;
+      height: 25px;
+      line-height: 25px;
+      overflow: hidden;
+      padding-left: 25px;
+      position: relative;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      white-space: nowrap;
+      z-index: 1;
+    }
+  }
+  .tree-table {
+    .toggle {
+      display: inline-block;
+      text-align: center;
+    }
+    .space-1x {
+      width: 15px!important;
+    }
+    .space-2x {
+      width: 30px!important;
+    }
+    .indent-3x {
+      width: 45px!important;
+    }
+    .indent-3x {
+      width: 60px!important;
+    }
+    .space-holder {
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+    }
+    tbody tr.leaf td {
+      border-bottom: 0 none;
+    }
+  }
+  [type="checkbox"] {
+    left: 18px;
+    position: absolute;
+    top: 6px;
+    vertical-align: middle;
+    width: 20px;
+    z-index: 2;
+  }
+  .collapsed {
+    & > ul {
+      display: none;
+    }
+  }
+  .selected {
+    & > .title-wrap a {
+      color: #fff;
+    }
+    & > .wholerow {
+      background: #00a277;
+    }
+  }
+  .wholerow {
+    height: 25px;
+    left: 0;
+    margin-top: -25px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+  .hidden {
+    display: none;
+  }
+}
